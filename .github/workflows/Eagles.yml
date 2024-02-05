@@ -1,0 +1,30 @@
+name: Eagles CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkou Repository
+        uses: actions/checkout@v2
+
+      - naem: Steup NodeJs
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+
+      - name: install Dependecies
+        run: npm install
+
+      - name: install Cypress
+        run: npm install --save-dev cypress@lastest
+
+      - name: Run Cypress Tests
+        run: npx cypress run --record --
+
+
